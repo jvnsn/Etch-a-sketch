@@ -1,31 +1,39 @@
+const wrapper = document.querySelector('.wrapper');
 const container = document.querySelector('.container');
+const btn_size = document.querySelector('.btn-create');
+const DEFAULT_SIZE = 16;
 
 function createGrid(size) {
-    for(let row = 0; row < size; row++) {
-        const row = document.createElement('div');
-        row.style.display = 'flex';
+    container.innerHTML = '';
 
-        for(let col = 0; col < size; col++) {
-            const square = document.createElement('div');
-            square.classList.add("square");
-            square.style.width = '32px';
-            square.style.height = '32px';
-            square.style.border = ".5px solid black";
+    const squareSize = 600 / size;
+    const grid = size * size;
 
-            square.addEventListener("mouseover", function() {
-                this.style.backgroundColor = "lightgreen";
-            });
+    for(let i = 0; i < grid; i++) {
+        const square = document.createElement('div');
+        square.classList.add("square");
+        square.style.width = `${squareSize}px`;
+        square.style.height = `${squareSize}px`;
+        square.style.border = ".5px solid black";
+        square.style.boxSizing = 'border-box';
 
-            row.appendChild(square);
-        }
+        square.addEventListener("mouseover", function() {
+            this.style.backgroundColor = "lightgreen";
+        });
 
-        container.appendChild(row);
+   
+        container.appendChild(square);
     }
 
-}
+};
 
 
-createGrid(16);
+createGrid(DEFAULT_SIZE);
 
-const box = document.querySelector('.box');
+
+btn_size.addEventListener("click", () => {
+    let size = prompt("Enter Grid Size (Max 100): ");
+    createGrid(size);
+});
+
 
