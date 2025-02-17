@@ -7,6 +7,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
 }
 
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    max-height: 600px;
+    justify-content: center;
+}
