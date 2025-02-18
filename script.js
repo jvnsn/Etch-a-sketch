@@ -18,14 +18,15 @@ function createGrid(size) {
         square.style.border = ".5px solid black";
         square.style.boxSizing = 'border-box';
 
-        square.addEventListener("mouseover", function() {
+       /* square.addEventListener("mouseover", function() {
             this.style.backgroundColor = "lightgreen";
         });
-
+        */
    
         container.appendChild(square);
     }
 
+    changeColor();
 };
 
 createGrid(DEFAULT_SIZE);
@@ -49,6 +50,28 @@ btn_reset.addEventListener("click", () => {
     const boxes = document.querySelectorAll('.square');
     boxes.forEach(box => {
         box.style.backgroundColor = 'white';
+        box.style.opacity = 1;
     });
+    changeColor();
 })
 
+function getRandomColors() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgb( ${r}, ${g}, ${b})`;
+
+}
+
+function changeColor() {
+    const boxes = document.querySelectorAll('.square');
+    boxes.forEach(box => {
+        let shade = 0;
+        box.addEventListener("mouseover", function() {
+            shade += .1;
+            this.style.backgroundColor = getRandomColors();
+            this.style.opacity = shade;
+        })
+    })
+}
