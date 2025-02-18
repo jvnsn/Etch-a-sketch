@@ -27,13 +27,21 @@ function createGrid(size) {
 
 };
 
-
 createGrid(DEFAULT_SIZE);
+
 
 
 btn_size.addEventListener("click", () => {
     let size = prompt("Enter Grid Size (Max 100): ");
-    createGrid(size);
+    while (size > 100) {
+        size = prompt("Size can not exceed 100");
+    } 
+    if (size) {
+        createGrid(size);
+    } else {
+        createGrid(DEFAULT_SIZE);
+    }
+    
 });
 
 
