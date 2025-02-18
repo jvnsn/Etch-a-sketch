@@ -1,6 +1,7 @@
 const wrapper = document.querySelector('.wrapper');
 const container = document.querySelector('.container');
 const btn_size = document.querySelector('.btn-create');
+const btn_reset = document.querySelector('.btn-reset');
 const DEFAULT_SIZE = 16;
 
 function createGrid(size) {
@@ -44,4 +45,10 @@ btn_size.addEventListener("click", () => {
     
 });
 
+btn_reset.addEventListener("click", () => {
+    const boxes = document.querySelectorAll('.square');
+    boxes.forEach(box => {
+        box.style.backgroundColor = 'white';
+    });
+})
 
