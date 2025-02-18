@@ -21,13 +21,25 @@ body {
     border: 2px solid black;
 }
 
-.btn-create {
+.btn-create,
+.btn-reset {
     padding: 10px 20px;
-    margin-bottom: 25px;
     border-radius: 25px;
     background-color: white;
 }
 
-.btn-create:hover {
+.btn-create:hover,
+.btn-reset:hover {
     background-color: rgb(245, 242, 242);
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    
+}
+
+
